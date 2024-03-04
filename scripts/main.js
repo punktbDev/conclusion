@@ -47,7 +47,10 @@ function renderPage() {
     $("#page-counter").text(`${pageCounterShow}/${pageMax}`);
 
     $(".svg-figure").addClass("hidden")
+
     $("#button-next").removeClass("hidden")
+    $("#button-download").addClass("hidden")
+    $("#top-left-logo").removeClass("hidden")
 
     // Если counter равен нулю - рендерим первую страницу
     switch (pageCounter) {
@@ -207,8 +210,11 @@ function renderPage() {
             $("section").addClass("hidden")
             $("#section-pdf").removeClass("hidden")
 
-            $("#button-next").attr("disabled", true)
-            $("#button-next").addClass("hidden")
+            $("#button-next").attr("disabled", true) 
+            $("#button-next").addClass("hidden") // Скрываем кнопку Далее
+            $("#top-left-logo").addClass("hidden") // Скрываем логотип
+
+            $("#button-download").removeClass("hidden") // Показываем кнопку загрузки
             break
 
         default:
@@ -232,7 +238,7 @@ $("#button-back").on("click tap", () => {
 
 // Кнопка вперед
 $("#button-next").on("click tap", () => {
-    // Если первая страница, то кнопка далее тригерит форму
+    // Если первая страница, то кнопка далее активируем форму
     if (pageCounter === 1) {
         $("#form-button").click()
         return
@@ -339,7 +345,7 @@ function renderVectors() {
                         <path d="M8 14.4L4 10.4L5.4 9L8 11.6L14.6 5L16 6.4L8 14.4Z" fill="white"/>
                     </svg>
                 </div>
-                <p>${vector.cuttitle}</p>
+                <p>${vector.cutTitle}</p>
             </div>
         `)
     }
@@ -379,7 +385,7 @@ function renderVectors() {
 renderVectors()
 
 
-// Третья страница - рендер выбраных векторов
+// Третья страница - рендер выбранных векторов
 function renderBestVectors() {
     $("#section-vector-best .content").empty()
 
@@ -390,7 +396,7 @@ function renderBestVectors() {
         $("#section-vector-best .content").append(`
             <div class="vector-best-wrapper ${vector.best ? "active" : ""}" id="vector-best-${vector.id}">
                 <div class="input-radio"></div>
-                <p>${vector.cuttitle}</p>
+                <p>${vector.cutTitle}</p>
             </div>
         `)
     }
@@ -418,7 +424,7 @@ function renderBestVectors() {
 }
 
 
-// Четвертая страница - рендер профессий в выбраных векторах
+// Четвертая страница - рендер профессий в выбранных векторах
 function renderJobs() {
     $("#section-vector-jobs .content").empty()
 
@@ -428,7 +434,7 @@ function renderJobs() {
     for (let vector of activeVectors) {
         $("#section-vector-jobs .content").append(`
             <div class="vector-jobs__container" id="jobs-container-${vector.id}">
-                <p class="vector-jobs__container-title">${vector.cuttitle}</p>
+                <p class="vector-jobs__container-title">${vector.cutTitle}</p>
                 <div class="vector-jobs__wrapper">
                     <div class="vector-jobs__content"></div>
                 </div>
@@ -491,7 +497,7 @@ function renderJobs() {
 }
 
 
-// Пятая сттраница - Будут ли рекомендации (Выбор одного)
+// Пятая страница - Будут ли рекомендации (Выбор одного)
 $("#section-prepare-conclusion button").on("click tap", (event) => {
     $("#section-prepare-conclusion button").removeClass("active")
     $("#" + event.currentTarget.id).addClass("active")
@@ -501,7 +507,7 @@ $("#section-prepare-conclusion button").on("click tap", (event) => {
 })
 
 
-// Шестая сттраница - тип обучения (Мультивыбор)
+// Шестая страница - тип обучения (выбор нескольких)
 $("#section-training-options button").on("click tap", (event) => {
     $("#" + event.currentTarget.id).toggleClass("active")
 
@@ -588,7 +594,7 @@ function updateCityInputs() {
             `)
         }
 
-        // Так же проверяем сосояние у следующего
+        // Так же проверяем состояние у следующего
         if ($(`#city-input-${cities.length + 1}`).val()) {
             $(`#city-input__wrapper-${cities.length + 1} .city-input__wrapper-svg svg`).replaceWith(`
                 <svg class="city-input__add" xmlns="http://www.w3.org/2000/svg" width="48" height="47" viewBox="0 0 48 47" fill="none">

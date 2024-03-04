@@ -58,7 +58,7 @@ button:disabled {
     left: 0;
 }
 
-#button-next {
+#button-next, #button-download {
     width: 178px;
     height: 100%;
 

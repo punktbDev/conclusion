@@ -7,6 +7,7 @@
 
 #section-form form {
     margin-top: 56px;
+    margin-bottom: 8px;
 }
 
 form input {
@@ -88,7 +89,7 @@ form input#form-date {
     padding: 0 20px;
 
     margin-top: 60px;
-    margin-bottom: 61px;
+    margin-bottom: 42px;
 }
 
 .vector-column {
@@ -130,6 +131,7 @@ form input#form-date {
     gap: 27px;
 
     margin-top: 60px;
+    margin-bottom: 14px;
 }
 
 .vector-best-wrapper {
@@ -161,6 +163,7 @@ form input#form-date {
     gap: 56px;
 
     margin-top: 46px;
+    margin-bottom: 14px;
 }
 
 .vector-jobs__container {
@@ -274,7 +277,7 @@ form input#form-date {
     gap: 64px;
 
     margin-top: 57px;
-    margin-bottom: 143px;
+    margin-bottom: 160px;
 }
 
 #section-prepare-conclusion button {
@@ -327,7 +330,7 @@ form input#form-date {
     gap: 16px;
 
     margin-top: 24px;
-    margin-bottom: 7px;
+    margin-bottom: 25px;
 }
 
 #section-training-options button {
@@ -379,6 +382,7 @@ form input#form-date {
     gap: 19px;
 
     margin-top: 56px;
+    margin-bottom: 4px;
 }
 
 .city-input__wrapper {
@@ -461,7 +465,7 @@ form input#form-date {
     gap: 28px;
 
     margin-top: 24px;
-    margin-bottom: 72px;
+    margin-bottom: 76px;
 }
 
 #section-paid-forms button {
@@ -514,7 +518,7 @@ form input#form-date {
     scrollbar-gutter: stable;
 
     margin-top: 56px;
-    margin-bottom: 12px;
+    margin-bottom: 2px;
 }
 
 /* Скролл */
@@ -600,10 +604,10 @@ form input#form-date {
 
 .comment-wrapper {
     width: 560px;
-    height: 112px;
+    height: 150px;
 
     margin-top: 56px;
-    margin-bottom: 199px;
+    margin-bottom: 214px;
 }
 
 .comment-wrapper textarea {

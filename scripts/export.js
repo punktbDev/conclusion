@@ -2,17 +2,20 @@ import { vectors } from "./vectors.js"
 import { logo, titleLogo, figureLogo, lastPage, lastPageLogo } from "./images.js"
 
 
-$("#button-pdfMake").on("click tap", () => {
+$("#button-download").on("click tap", () => {
     $(".pdf-status").text("Загрузка документа")
+    setTimeout(() => {
+        $(".pdf-status").text("")
+    }, 10000)
 
-    const wMargin = 60 // Маржин для боковых отступов
+    const wMargin = 60 // Боковые отступы
 
     const formDate = new Date($("#form-date").val())
     const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
 
     const activeVectors = vectors.filter(vector => vector.active)
 
-    // Список выбранных веторок
+    // Список выбранных векторов
     let selectedVectors = []
     for (let vector of activeVectors) {
         selectedVectors.push({
@@ -62,13 +65,13 @@ $("#button-pdfMake").on("click tap", () => {
 
 
     // Рекомендации + комментарий если он есть
-    let recomendations = []
+    let recommendations = []
 
     if ($("#prepare-conclusion-yes").hasClass("active")) {
-        recomendations.push(
+        recommendations.push(
             {
                 text: "3. Рекомендации по образовательным траекториям",
-                style: "boldCian",
+                style: "boldCyan",
                 margin: [wMargin, 20, wMargin, 0]
             },
             {
@@ -92,7 +95,7 @@ $("#button-pdfMake").on("click tap", () => {
 
         // Формы обучения
         for (let option of $("#section-training-options button.active p")) {
-            recomendations.push(
+            recommendations.push(
                 {
                     text: $(option).text(),
                     margin: [wMargin, 10, wMargin, 0]
@@ -101,14 +104,14 @@ $("#button-pdfMake").on("click tap", () => {
         }
 
         // Города для обучения
-        recomendations.push({
+        recommendations.push({
             text: "2. Города для получения образования  (при обучении в очном оффлайн формате):",
             style: "bold",
             margin: [wMargin, 20, wMargin, 0]
         })
         for (let city of $(".city-input")) {
             if ($(city).val()) { // Если не пустой
-                recomendations.push(
+                recommendations.push(
                     {
                         text: $(city).val(),
                         margin: [wMargin, 10, wMargin, 0]
@@ -119,7 +122,7 @@ $("#button-pdfMake").on("click tap", () => {
 
 
         // Платная форма
-        recomendations.push(
+        recommendations.push(
             {
                 text: "3. Платные формы обучения:",
                 style: "bold",
@@ -133,15 +136,15 @@ $("#button-pdfMake").on("click tap", () => {
 
         
         // Институты
-        recomendations.push({
+        recommendations.push({
             text: "4. Рекомендованные варианты обучения для получения выбранных профессий:",
-            style: "boldCian",
+            style: "boldCyan",
             margin: [wMargin, 20, wMargin, 0]
         })
 
         for (let institute of $("#section-institutions .textarea-wrapper:not(.demo) textarea")) {
             if ($(institute).val()) { // Если не пустой
-                recomendations.push(
+                recommendations.push(
                     {
                         text: $(institute).val(),
                         margin: [wMargin, 10, wMargin, 10]
@@ -154,7 +157,7 @@ $("#button-pdfMake").on("click tap", () => {
 
     // Комментарий (По выбору)
     if ($(".comment-wrapper textarea").val()) {
-        recomendations.push([
+        recommendations.push([
             {
                 text: "Дополнительные комментарии:",
                 style: "bold",
@@ -246,14 +249,14 @@ $("#button-pdfMake").on("click tap", () => {
             // Вектора
             {
                 text: "1. Рекомендации по профессиональным векторам",
-                style: "boldCian",
+                style: "boldCyan",
                 margin: [wMargin, 0, wMargin, 0]
             },
             {
                 text: "По итогам прохождения программы  «Выбор профессии 3.0» Международной школы выбора профессии Пункт Б были выявлены следующие профессиональные вектора, наиболее подходящие участнику программы для профессиональной реализации:",
                 margin: [wMargin, 10, wMargin, 10]
             },
-            // Список выбранных веторов
+            // Список выбранных векторов
             ...selectedVectors,
             {
                 text: "Именно в указанных профессиональных сферах с наибольшей вероятностью участник программы сможет реализовать свои интересы, склонности и потребности. Которые были выявлены в процессе прохождения диагностик (тестов, диагностических игр и других заданий программы).",
@@ -284,7 +287,7 @@ $("#button-pdfMake").on("click tap", () => {
             // Критерии
             {
                 text: "2. Рекомендации по профессиям внутри выбранных профессиональных векторов",
-                style: "boldCian",
+                style: "boldCyan",
                 margin: [wMargin, 0 , wMargin, 0]
             },
             {
@@ -293,7 +296,7 @@ $("#button-pdfMake").on("click tap", () => {
             },
             {
                 text: "• Критерий 1",
-                style: "boldCian",
+                style: "boldCyan",
                 margin: [wMargin, 20, wMargin, 0]
             },
             {
@@ -302,7 +305,7 @@ $("#button-pdfMake").on("click tap", () => {
             },
             {
                 text: "• Критерий 2",
-                style: "boldCian",
+                style: "boldCyan",
                 margin: [wMargin, 20, wMargin, 0]
             },
             {
@@ -311,7 +314,7 @@ $("#button-pdfMake").on("click tap", () => {
             },
             {
                 text: "• Критерий 3",
-                style: "boldCian",
+                style: "boldCyan",
                 margin: [wMargin, 20, wMargin, 0]
             },
             {
@@ -332,7 +335,7 @@ $("#button-pdfMake").on("click tap", () => {
 
 
             // Рекомендации (По выбору) + Комментарий (По выбору)
-            ...recomendations,
+            ...recommendations,
 
 
             // Последняя страница
@@ -358,7 +361,7 @@ $("#button-pdfMake").on("click tap", () => {
             italics: {
                 italics: true,
             },
-            boldCian: {
+            boldCyan: {
                 color: "#66CAA5",
                 bold: true,
                 alignment: "left",

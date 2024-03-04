@@ -3,28 +3,14 @@
 
     align-items: flex-start;
 
-    margin-bottom: 40px;
-}
-
-.pdf-buttons {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-
-    margin-top: 30px;
-
-}
-
-.pdf-buttons button {
-    width: 100%;
+    margin-bottom: 20px;
 }
 
 .pdf-status {
     width: 100%;
     text-align: center;
 
-    margin: 12px 0;
+    margin: 24px auto 0 auto;
 }
 
 #section-pdf .content-wrapper {
@@ -153,8 +139,8 @@
     font-style: italic;
 }
 
-.text-cian {
-    color: var(--p-cian);
+.text-cyan {
+    color: var(--p-cyan);
 }
 
 .text-bold {
