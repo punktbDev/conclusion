@@ -47,6 +47,7 @@ function renderPage() {
     $("#page-counter").text(`${pageCounterShow}/${pageMax}`);
 
     $(".svg-figure").addClass("hidden")
+    $("#button-next").removeClass("hidden")
 
     // Если counter равен нулю - рендерим первую страницу
     switch (pageCounter) {
@@ -207,6 +208,7 @@ function renderPage() {
             $("#section-pdf").removeClass("hidden")
 
             $("#button-next").attr("disabled", true)
+            $("#button-next").addClass("hidden")
             break
 
         default:
