@@ -155,6 +155,7 @@
 @media screen and (max-width: 1240px) {
     #section-vector-jobs .content {
         width: min(560px, 100%);
+        height: auto;
 
         flex-direction: column;
         flex-wrap: nowrap;

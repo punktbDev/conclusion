@@ -157,6 +157,7 @@ form input#form-date {
 
 #section-vector-jobs .content {
     width: 1192px;
+    height: 336px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
