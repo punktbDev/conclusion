@@ -5,6 +5,7 @@
 @import "./svg.css";
 @import "./pages.css";
 @import "./pdf.css";
+@import "./access.css";
 
 
 :root {
@@ -101,6 +102,7 @@ input.error {
     position: absolute;
     top: 50px;
     left: 100px;
+    z-index: 6;
     
     cursor: pointer;
 }
