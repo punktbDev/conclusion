@@ -1,6 +1,24 @@
 import { vectors } from "./vectors.js"
 import { logo, titleLogo, figureLogo, lastPage, lastPageLogo } from "./images.js"
 
+// Разбиение текста на текст и ссылки
+function splitTextByLinks(text) {
+    const regex = /(https?:\/\/[^\s]+)/g; // Регулярное выражение для поиска ссылок
+  
+    // Делим текст
+    const parts = text.split(regex);
+  
+    // Преобразуем части текста: ссылки заменяем на объекты
+    const result = parts.map(part => {
+        if (part.match(regex)) {
+            return { text: part, link: part, style: "link" }; // Если это ссылка, то возвращаем объект
+        }
+        return part; // Если это обычный текст, возвращаем как есть
+    })
+  
+    return result;
+}
+
 
 $("#button-download").on("click tap", () => {
     $(".pdf-status").text("Загрузка документа")
@@ -146,7 +164,7 @@ $("#button-download").on("click tap", () => {
             if ($(institute).val()) { // Если не пустой
                 recommendations.push(
                     {
-                        text: $(institute).val(),
+                        text: splitTextByLinks($(institute).val()),
                         margin: [wMargin, 10, wMargin, 10]
                     }
                 )
@@ -164,7 +182,7 @@ $("#button-download").on("click tap", () => {
                 margin: [wMargin, 20, wMargin, 0]
             },
             {
-                text: $(".comment-wrapper textarea").val(),
+                text: splitTextByLinks($(".comment-wrapper textarea").val()),
                 margin: [wMargin, 10, wMargin, 0]
             }
         ])
@@ -366,6 +384,10 @@ $("#button-download").on("click tap", () => {
                 bold: true,
                 alignment: "left",
             },
+            link: {
+                color: "#3366BB",
+                alignment: "left",
+            }
         },
         defaultStyle: {
             fontSize: 14,
