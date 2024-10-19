@@ -395,5 +395,7 @@ $("#button-download").on("click tap", () => {
         }
     }
 
-    pdfMake.createPdf(docDefinition).download(`Заключение ${$("#form-client").val()} ${moment().format("DD-MM-YYYY")}`);
+    pdfMake.createPdf(docDefinition).download(
+        `Заключение ${$("#form-client").val()} ${moment().format("DD-MM-YYYY")}`
+    );
 })
