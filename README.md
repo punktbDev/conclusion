@@ -2,5 +2,5 @@
 
 ## Домены
 
-- От vercel: conclusion-punkt-b.vercel.app
-- От Пункт Б: conclusion.punkt-b.pro
+- Vercel: https://conclusion-punkt-b.vercel.app
+- Пункт Б: https://conclusion.punkt-b.pro
