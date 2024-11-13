@@ -14,7 +14,7 @@ $("#form-date").val(moment().format("YYYY-MM-DD"))
 
 // Открытие кабинета по нажатию на логотип
 $("#top-left-logo").on("click tap", () => {
-    location.href = "https://punkt-b.pro/cabinet"
+    location.href = CABINET_URL
 })
 
 // Выбранные города
