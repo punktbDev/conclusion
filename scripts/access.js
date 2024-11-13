@@ -1,7 +1,7 @@
 // Получить актуальную информацию о профиле
 function DBgetUserData(auth) {
     $.ajax({
-        url: "https://punctb-service.ru/api/v1/manager",
+        url: API_URL + "/manager",
         method: "GET",
         headers: {
             "Authorization": "Basic " + auth
