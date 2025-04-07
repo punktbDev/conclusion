@@ -41,11 +41,10 @@ function noAuthDataError() {
 // Если данные для входа в ссылке
 const urlParams = new URLSearchParams(window.location.search)
 if (urlParams.get("auth")) {
-    console.log("auth");
     // Сохраняем данные для входа
     localStorage.auth = urlParams.get("auth")
     
-    // Удаляем их ссылки данные для входа
+    // Удаляем из ссылки данные для входа
     history.pushState(null, null, '/')
     DBgetUserData(urlParams.get("auth"))
 } else if (localStorage.auth) { // Если нету - проверка из памяти
