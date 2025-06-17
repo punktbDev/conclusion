@@ -19,6 +19,8 @@ function splitTextByLinks(text) {
     return result;
 }
 
+// Что бы все точно работало
+document.addEventListener("DOMContentLoaded", () => {
 
 $("#button-download").on("click tap", () => {
     $(".pdf-status").text("Загрузка документа")
@@ -399,3 +401,5 @@ $("#button-download").on("click tap", () => {
         `Заключение ${$("#form-client").val()} ${moment().format("DD-MM-YYYY")}`
     );
 })
+
+});

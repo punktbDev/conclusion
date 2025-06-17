@@ -222,6 +222,8 @@ function renderPage() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+
 // Кнопка назад
 $("#button-back").on("click tap", () => {
     // Если на 10 странице нажать назад, то проверяем активна ли подготовка заключения
@@ -255,6 +257,8 @@ $("#button-next").on("click tap", () => {
     pageCounter++
     renderPage()
 })
+
+});
 
 
 // Пометить инпут ошибкой
@@ -497,6 +501,8 @@ function renderJobs() {
 }
 
 
+document.addEventListener("DOMContentLoaded", () => {
+
 // Пятая страница - Будут ли рекомендации (Выбор одного)
 $("#section-prepare-conclusion button").on("click tap", (event) => {
     $("#section-prepare-conclusion button").removeClass("active")
@@ -558,6 +564,8 @@ $(".city-input").on("change", (event) => {
     cities[event.currentTarget.id.split("-")[2] - 1] = event.currentTarget.value
     updateCityInputs()
 })
+
+});
 
 
 function updateCityInputs() {
@@ -637,6 +645,7 @@ function updateCityInputs() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
 
 // Восьмая страница - платные формы (Выбор одного)
 $("#section-paid-forms button").on("click tap", (event) => {
@@ -712,6 +721,7 @@ $(".institutions-wrapper .content").on("click tap", ".institute__delete", (event
     `)
 })
 
+});
 
 
 function renderPDF() {
